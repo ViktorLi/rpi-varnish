@@ -5,6 +5,6 @@ set -e
 exec bash -c \
   "exec varnishd -F \
   -f $VCL_CONFIG \
-  -a :8080 \
+  -a :6081 \
   -s malloc,$CACHE_SIZE \
   $VARNISHD_PARAMS"
