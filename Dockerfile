@@ -3,7 +3,7 @@ FROM arm32v7/debian:stretch-slim
 LABEL maintainer="Giovanbattista Amato <giovanbattista.amato@outlook.com>"
 
 RUN apt-get update && \
-    apt-get install -yq varnish && \
+    apt-get install varnish && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY default.vcl /etc/varnish/default.vcl
