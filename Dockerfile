@@ -1,10 +1,10 @@
-FROM balenalib/rpi-debian:stretch-build
+FROM arm32v7/debian:stretch-slim
 
-LABEL io.balena.device-type="raspberry-pi"
+LABEL maintainer="Giovanbattista Amato <giovanbattista.amato@outlook.com>"
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-		nano \
-		net-tools \
+RUN apt-get update && apt-get install -yq --no-install-recommends \
+	nano \
+	net-tools \
         varnish \
     && rm -rf /var/lib/apt/lists/*
 
