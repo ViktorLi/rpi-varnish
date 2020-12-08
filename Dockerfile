@@ -1,10 +1,12 @@
-FROM arm32v7/debian:stretch-slim
+FROM balenalib/rpi-debian:stretch-build
 
-LABEL maintainer="Giovanbattista Amato <giovanbattista.amato@outlook.com>"
+LABEL io.balena.device-type="raspberry-pi"
 
-RUN apt-get update && \
-    apt-get install -y varnish && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		nano \
+		net-tools \
+        varnish \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY default.vcl /etc/varnish/default.vcl
 
